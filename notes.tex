@@ -53,10 +53,10 @@
 	\end{align*}
 
 	It follows that every $u$ and $v$ that satisfies these conditions also satisfy Laplace's equation, that is:
-	\begin{align}
+	\begin{align*}
 	\Delta u &\defeq \nabla \cdot \nabla u = 0 \\
 	\Delta v &= 0
-	\end{align}
+	\end{align*}
 
 	\labsec{Continuous function}
 	
@@ -124,5 +124,23 @@
 	\[
 	\lim_{z \rightarrow z_0} f(z)
 	\]
-	exists. 
+	exists.
+	
+	\labsec{Residue}
+	
+	Every pole (which will be denoted by $a_j$) has an associated residue (which we will call $r_j$). It is defined by:
+	
+	\begin{align}
+		r_j = \lim_{z\rightarrow a_j} \dfrac{1}{(k_j-1)!} \dfrac{d^{k_j-1}}{dz^{k_j-1}} \left[(z-a_j)^{k_j} f(z)\right]
+	\end{align}
+
+	where $k_j$ is the order of the $j$th pole.
+
+	\labsec{Residue theorem}
+	
+	The residue theorem states that:
+	\begin{align*}
+		\oint_C f(z) dz &= 2\pi i \sum_j r_j \\
+		&= 2\pi i \sum_j \lim_{z\rightarrow a_j} \dfrac{1}{(k_j-1)!} \dfrac{d^{k_j-1}}{dz^{k_j-1}} \left[(z-a_j)^{k_j} f(z)\right]
+	\end{align*}
 \end{document}
