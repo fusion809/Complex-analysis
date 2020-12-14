@@ -1,0 +1,128 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage[margin=0.5in]{geometry}
+\newcommand{\inlinecode}{\texttt}
+\newcommand{\question}{\textbf{Question}: }
+\newcommand{\itq}{\item\question }
+\newcommand{\answer}{\textbf{Answer}: }
+\newcommand{\alphlist}{\begin{enumerate}[label=(\alph*)]}
+\setlength{\parindent}{0pt}
+\linespread{1.5}
+\newcommand{\labsec}[1]{\section{#1}
+	\label{sec:#1}}
+\newcommand{\seclin}[1]{\hyperref[sec:#1]{\caselower{#1}}}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\begin{document}
+	{\Huge \textbf{Complex analysis notes}}
+	
+	\tableofcontents
+	\newpage
+	
+	{\LARGE \textbf{Glossary}}
+	
+	\labsec{Analytic}
+	
+	A function is analytic at a point, if at that point and within its neighbourhood, its derivative is defined.
+	
+	\labsec{Branch point}
+	
+	A branch point is a singularity across which the function is discontinuous. $\ln{z}$ is an example of a discontinuous function, as at $z=0$ it jumps from having $\pi i$ in it and not having that term.
+	
+	\labsec{Cauchy-Riemann conditions}
+	
+	The Cauchy-Riemann conditions determine whether a function is differentiable. Assuming a complex function, $f(z)$, can be written in the form:
+	\begin{align*}
+		f(z) = u(x,y) + iv(x,y)
+	\end{align*}
+
+	Then the Cauchy-Riemann conditions are:
+	\begin{align*}
+		\dfrac{\partial u}{\partial x} &= \dfrac{\partial v}{\partial y} \\
+		\dfrac{\partial u}{\partial y} &= - \dfrac{\partial v}{\partial x}
+	\end{align*}
+
+	It follows that every $u$ and $v$ that satisfies these conditions also satisfy Laplace's equation, that is:
+	\begin{align}
+	\Delta u &\defeq \nabla \cdot \nabla u = 0 \\
+	\Delta v &= 0
+	\end{align}
+
+	\labsec{Continuous function}
+	
+	A function, $f(z)$, is continuous at a point $z_0$, if it satisfies the following criteria:
+	\[
+		f(z_0) \hspace{0.1cm}\mathrm{exists,}
+	\]
+	\[
+		\lim_{z\rightarrow z_0} f(z) \hspace{0.1cm}\mathrm{exists,}
+	\]
+	\[
+		\lim_{z\rightarrow z_0} f(z) = f(z_0)
+		\hspace{0.1cm}\mathrm{exists}
+	\]
+	
+	If $f = u + iv$ is continuous, then both $u$ and $v$ must be continuous.
+
+	\labsec{Derivative of a complex function}
+	
+	The derivative of a complex function, $f(z)$, is:
+	\begin{align*}
+		f'(z) &= \dfrac{df}{dz} \\
+		&= \dfrac{\partial u}{\partial x} + i \dfrac{\partial v}{\partial x}
+	\end{align*}
+
+	In polar form, with $z = re^{i\theta}$, $f'(z)$ is defined as:
+	\[
+	f'(z) = e^{-i\theta} \left(\dfrac{\partial u}{\partial r}+i \dfrac{\partial v}{\partial r}\right)
+	\]
+	
+	\labsec{Entire function}
+	
+	A holomorphic function whose domain is the whole complex plane is called an entire function.
+	
+	\labsec{Essential singularity}
+	
+	An isolated singularity that is not a pole nor a removable singularity is called an \textbf{essential singularity}.
+	
+	\labsec{Holomorphic function}
+	
+	A holomorphic function is a function that is analytic within a neighbourhood of every point within its domain.
+	
+	\labsec{Isolated singularity}
+	
+	A singularity, $z_0$, is isolated if and only if the circle $|z-z_0|=\delta$ encloses no singularities other than $z_0$ itself. 
+
+	\labsec{Neighbourhood}
+	
+	The neighbourhood of a point is essentially a disk of size $\epsilon$ around said point. In other words, it is defined by all $z$ values such that:
+	\[
+	|z-z_0| < \epsilon
+	\] 
+	
+	\labsec{Pole}
+	
+	If $z_0$ is an isolated singularity, and there exists a positive integer $n$ such that:
+	\[
+	\lim_{z\rightarrow z_0} (z-z_0)^n f(z) \neq 0
+	\]
+	then $z_0$ is said to be a \textbf{pole of order} $\mathbf{n}$. 
+	
+	\labsec{Removable singularity}
+	
+	An isolated singularity, $z_0$, is removable if and only if:
+	\[
+	\lim_{z \rightarrow z_0} f(z)
+	\]
+	exists. 
+\end{document}
